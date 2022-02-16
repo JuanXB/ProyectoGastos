@@ -11,8 +11,8 @@ class BasicEntity
   {
     $this->table = (string) $table;
 
-
-    $this->connect = null; //conexion por defecto = null.
+    //conexion por defecto = null.
+    $this->connect = null;
     // Se le pasa directamente la conexion a la base de datos por medio de $adapter.
     $this->db = $adapter;
   }
