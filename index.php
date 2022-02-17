@@ -1,10 +1,10 @@
 <?php
 //Configuracion globales por defecto.
-require_once "config/globals.php";
+require "config/globals.php";
 //Controlador basico.
-require_once "core/BasicController.php";
+require "core/BasicController.php";
 // Funciones para el controlador frontal.
-require_once "core/FrontControllerAdm.php";
+require 'core/FrontControllerAdm.php';
 $adminController = new FrontControllerAdministrator();
 
 //Cargamos nuestros controladores y las acciones.

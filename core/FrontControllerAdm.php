@@ -36,9 +36,9 @@ class FrontControllerAdministrator
   //si el metodo no existe carga el definido en globals.php
   public function launchAction($objController)
   {
-    $method = $_GET['action'];
-    if (isset($method) && method_exists($objController, $method)) {
-      $this->loadAction($objController, $method);
+
+    if (isset($_GET['action']) && method_exists($objController,  $_GET['action'])) {
+      $this->loadAction($objController,  $_GET['action']);
     } else {
       $this->loadAction($objController, DEFAULT_ACTION);
     }

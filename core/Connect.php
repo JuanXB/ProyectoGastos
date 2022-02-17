@@ -7,8 +7,8 @@ class Connect
   public function __construct()
   {
     //Se extraen los datos de configuracion para conectarse a la base de datos.
-    $db_config = require_once 'dataBase/database.php';
-    $this->dricer = $db_config["driver"];
+    $db_config = require_once 'config/database.php';
+    $this->driver = $db_config["driver"];
     $this->host = $db_config["host"];
     $this->user = $db_config["user"];
     $this->password = $db_config["password"];

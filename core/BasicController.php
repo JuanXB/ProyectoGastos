@@ -13,6 +13,12 @@ class BasicController
     }
   }
 
+  public function createUrl($controller = DEFAULT_DRIVER, $action = DEFAULT_ACTION)
+  {
+    $urlString = "index.php?controller=" . $controller . "&action=" . $action;
+    return $urlString;
+  }
+
   public function redirect($controller = DEFAULT_DRIVER, $action = DEFAULT_ACTION)
   {
     header("Location:index.php?controller=" . $controller . "&action=" . $action);
