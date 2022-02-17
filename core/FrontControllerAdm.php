@@ -25,7 +25,7 @@ class FrontControllerAdministrator
 
   //Carga el metodo del controlador que se pasa
   // por la variable $action.
-  public function loadAction($objController, $action)
+  private function loadAction($objController, $action)
   {
     $controllerMethod = $action;
     $objController->$controllerMethod();

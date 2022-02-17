@@ -7,8 +7,8 @@ CREATE TABLE expenses (
   --COLLATE especifica en que formato se compara.
   'category' VARCHAR(30) COLLATE utf8mb4_spanish2_ci, 
   'amount' DECIMAL(10, 2) NOT NULL,
-  'date' DATE,
-  'description' TEXT COLLATE  utf8mb4_spanish2_ci
+  'expensesDate' DATE,
+  'details' TEXT COLLATE  utf8mb4_spanish2_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 ALTER TABLE expenses ADD PRIMARY KEY ('id');
