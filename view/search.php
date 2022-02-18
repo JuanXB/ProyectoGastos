@@ -10,6 +10,10 @@
 
 <body>
   <h1>search</h1>
+  <form action="" class="search" method="POST">
+    <input type="text" name="dataSearch" require>
+    <input type="submit" value="Buscar">
+  </form>
 </body>
 
 </html>

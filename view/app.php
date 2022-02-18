@@ -6,6 +6,7 @@ echo "<h1>
          Bienvenido a mi contabilidad doméstica<br>
          Actualmente hay $amountExpenses anotaciones
          </h1>";
+
 ?>
 <div class="option">
   <a href="<?php echo $urlSearch ?>" &id="search">Buscar</a>

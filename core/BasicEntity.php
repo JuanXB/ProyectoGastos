@@ -31,16 +31,12 @@ class BasicEntity
   {
     $query = $this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
     //Devolvemos el result set en forma de array de objetos. 
-    if ($row = $query->fetch_object()) {
-      while ($row = $query->fetch_object()) {
-        $resultSet[] = $row;
-      }
-    } else {
-      $resultSet = array();
+    while ($row = $query->fetch_object()) {
+      $resultSet[] = $row;
     }
-
     return $resultSet;
   }
+
 
   public function getById($id)
   {

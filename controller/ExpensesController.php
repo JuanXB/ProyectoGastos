@@ -11,6 +11,8 @@ class ExpensesController extends BasicController
     $this->adapter = $this->connect->conexion();
   }
 
+  //TODO: hacer que las variables sean llamadas desde la pagina
+  // y no desde la clase para que no aparezcan como "not used".
   public function app()
   {
     //Se calcula la cantidad de gastos.
@@ -28,6 +30,22 @@ class ExpensesController extends BasicController
   public function search()
   {
     require "view/search.php";
+
+    if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
+      $data = new ExpensesModel($this->adapter);
+      $data = $data->searchExpenses($_POST['dataSearch']);
+
+
+      if ($data) {
+        foreach ($data as $row) {
+          echo $row->category,
+          $row->amount,
+          $row->expensesDate,
+          $row->details;
+          echo "<br>";
+        }
+      }
+    }
   }
 
   public function new()

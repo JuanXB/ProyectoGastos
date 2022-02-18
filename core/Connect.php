@@ -33,5 +33,6 @@ class Connect
 
   public function close()
   {
+    //TODO: Funcion para cerrar conexion.
   }
 }
