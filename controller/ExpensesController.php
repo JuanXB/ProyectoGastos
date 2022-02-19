@@ -50,6 +50,25 @@ class ExpensesController extends BasicController
 
   public function new()
   {
+
+    $actionForm = $this->createUrl(DEFAULT_DRIVER, 'new');
+    require "view/new.php";
+
+    if (
+      isset($_POST['category']) && $_POST['category'] != "" &&
+      isset($_POST['amount']) && $_POST['amount'] != ""
+    ) {
+
+      $expense = new Expenses($this->adapter);
+      $expense->setCategory($_POST['category']);
+      $expense->setAmount($_POST['amount']);
+      $expense->setDetails($_POST['details']);
+      $expense->setDate($_POST['expenseDate']);
+      $save = $expense->save();
+      if ($save) {
+        echo "Gasto agregado con exito";
+      }
+    }
     require "view/new.php";
   }
 

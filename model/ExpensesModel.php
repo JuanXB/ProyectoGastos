@@ -12,14 +12,14 @@ class ExpensesModel extends BasicModel
   public function amountOfExpenses()
   {
     $expenses = $this->getAll();
-    $amountExpenses = $expenses->num_rows();
+    $amountExpenses = count($expenses);
 
     return $amountExpenses;
   }
 
   public function searchExpenses($data)
   {
-    $query = "SELECT * FROM $this->table 
+    $query = "SELECT * FROM $this->table
               WHERE category  LIKE '%$data%'  OR
               details LIKE '%$data%' 
               ORDER BY expensesDate DESC;";

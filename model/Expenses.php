@@ -66,10 +66,10 @@ class Expenses extends BasicEntity
 
   public function save()
   {
-    $query = "INSERT INTO expenses(id, category, amount, expensesDate, details)
+    $query = "INSERT INTO expenses(category, amount, expensesDate, details)
               VALUES (NULL, '" . $this->category . "',
                             '" . $this->amount . "',
-                            '" . $this->expensesDate . "'
+                            '" . $this->expensesDate . "',
                             '" . $this->details . "');";
 
     $save = $this->db()->query($query);
