@@ -30,21 +30,10 @@ class ExpensesController extends BasicController
   public function search()
   {
     $this->view = 'search';
-
     if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
 
       $data = $this->expenses->searchExpenses($_POST['dataSearch']);
-
-
-      if ($data) {
-        foreach ($data as $row) {
-          echo $row->category,
-          $row->amount,
-          $row->expensesDate,
-          $row->details;
-          echo "<br>";
-        }
-      }
+      return $data;
     }
   }
 
@@ -62,9 +51,7 @@ class ExpensesController extends BasicController
       $expense->setDetails($_POST['details']);
       $expense->setDate($_POST['expenseDate']);
       $save = $expense->save();
-      if ($save) {
-        echo "Gasto agregado con exito";
-      }
+      return $save;
     }
   }
 
