@@ -10,6 +10,10 @@
 
 <body>
   <?php
+  if (!isset($amountExpenses)) {
+    $amountExpenses = "0";
+  }
+
   echo "<h1>
          Bienvenido a mi contabilidad doméstica<br>
          Actualmente hay $amountExpenses anotaciones
@@ -17,9 +21,9 @@
 
   ?>
   <div class="option">
-    <a href="<?php echo $urlSearch ?>" &id="search">Buscar</a>
-    <a href="<?php echo $urlNew ?>" &id="new">Nuevo gasto</a>
-    <a href="<?php echo $urlList ?>" &id="list">Lista de gastos</a>
+    <a href="index.php?controller=Expenses&action=search" id="search">Buscar</a>
+    <a href="index.php?controller=Expenses&action=new" id="new">Nuevo gasto</a>
+    <a href="index.php?controller=Expenses&action=list" id="list">Lista de gastos</a>
 
   </div>
 </body>

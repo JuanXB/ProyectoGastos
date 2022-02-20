@@ -13,7 +13,7 @@ class FrontControllerAdministrator
     $strFileController = 'controller/' . $controller . '.php';
 
     if (!is_file($strFileController)) {
-      $strFileController = 'controller/' . ucwords(DEFAULT_DRIVER) . 'Controller';
+      $strFileController = 'controller/' . ucwords(DEFAULT_CONTROLLER) . 'Controller';
     }
 
     //Se llama al archivo del controlador.
@@ -22,6 +22,7 @@ class FrontControllerAdministrator
 
     return $objController;
   }
+
 
   //Carga el metodo del controlador que se pasa
   // por la variable $action.
@@ -42,5 +43,12 @@ class FrontControllerAdministrator
     } else {
       $this->loadAction($objController, DEFAULT_ACTION);
     }
+  }
+
+  //Crea la url que redrije a la vista.
+  public function viewRequired($vista)
+  {
+
+    require_once 'view/' . $vista . '.php';
   }
 }

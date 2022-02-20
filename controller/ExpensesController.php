@@ -1,39 +1,39 @@
 <?php
+
 class ExpensesController extends BasicController
 {
   public $connect;
   public $adapter;
+  public $expenses;
+  public $view;
 
   public function __construct()
   {
     parent::__construct();
     $this->connect = new Connect();
     $this->adapter = $this->connect->conexion();
+    $this->expenses = new ExpensesModel($this->adapter);
+    $this->view = DEFAULT_ACTION;
   }
 
   //TODO: hacer que las variables sean llamadas desde la pagina
   // y no desde la clase para que no aparezcan como "not used".
   public function app()
-  {
+  { //Se establece cual es el nombre de la vista.
+    $this->view = "app";
+
     //Se calcula la cantidad de gastos.
-    $expenses = new ExpensesModel($this->adapter);
-    $amountExpenses = $expenses->amountOfExpenses();
-
-    //Se crean url de los botones.
-    $urlSearch = $this->createUrl(DEFAULT_DRIVER, "search");
-    $urlNew = $this->createUrl(DEFAULT_DRIVER, "new");
-    $urlList = $this->createUrl(DEFAULT_DRIVER, "list");
-
-    require_once "view/app.php";
+    $amountExpenses = $this->expenses->amountOfExpenses();
+    return $amountExpenses;
   }
 
   public function search()
   {
-    require "view/search.php";
+    $this->view = 'search';
 
     if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
-      $data = new ExpensesModel($this->adapter);
-      $data = $data->searchExpenses($_POST['dataSearch']);
+
+      $data = $this->expenses->searchExpenses($_POST['dataSearch']);
 
 
       if ($data) {
@@ -50,10 +50,7 @@ class ExpensesController extends BasicController
 
   public function new()
   {
-
-    $actionForm = $this->createUrl(DEFAULT_DRIVER, 'new');
-    require "view/new.php";
-
+    $this->view = 'new';
     if (
       isset($_POST['category']) && $_POST['category'] != "" &&
       isset($_POST['amount']) && $_POST['amount'] != ""
@@ -69,11 +66,10 @@ class ExpensesController extends BasicController
         echo "Gasto agregado con exito";
       }
     }
-    require "view/new.php";
   }
 
   public function list()
   {
-    require "view/list.php";
+    $this->view = 'list';
   }
 }
