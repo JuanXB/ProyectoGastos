@@ -60,5 +60,6 @@ class ExpensesController extends BasicController
   public function list()
   {
     $this->view = 'list';
+    return  $this->expenses->getAll();
   }
 }
