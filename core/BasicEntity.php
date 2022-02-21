@@ -38,7 +38,6 @@ class BasicEntity
     if (!isset($resultSet)) {
       $resultSet = array();
     }
-
     return $resultSet;
   }
 

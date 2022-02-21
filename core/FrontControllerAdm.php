@@ -29,7 +29,7 @@ class FrontControllerAdministrator
   private function loadAction($objController, $action)
   {
     $controllerMethod = $action;
-    $objController->$controllerMethod();
+    return $objController->$controllerMethod();
   }
 
 
@@ -44,14 +44,11 @@ class FrontControllerAdministrator
     $dataToView["data"] = array();
     if (isset($_GET['action']) && method_exists($objController,  $_GET['action'])) {
 
-      $this->loadAction($objController,  $_GET['action']);
-
-      $dataToView["data"] = $objController->{$_GET['action']}();
+      $dataToView["data"] = $this->loadAction($objController,  $_GET['action']);
       return $dataToView["data"];
     } else {
-      $this->loadAction($objController, DEFAULT_ACTION);
-      $action = (string) DEFAULT_ACTION;
-      $dataToView["data"] = $objController->$action();
+
+      $dataToView["data"] =  $this->loadAction($objController, DEFAULT_ACTION);
       return $dataToView["data"];
     }
   }

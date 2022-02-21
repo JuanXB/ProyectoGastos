@@ -20,8 +20,5 @@ if (isset($_GET['controller'])) {
   $dataToView["data"] = $adminController->launchAction($objController);
 }
 
-
-
-
 //Cargamos las vistas.
 require_once "view/" . $objController->view . ".php";

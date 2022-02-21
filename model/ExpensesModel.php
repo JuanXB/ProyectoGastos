@@ -12,6 +12,7 @@ class ExpensesModel extends BasicModel
   public function amountOfExpenses()
   {
     $expenses = $this->getAll();
+
     $amountExpenses = count($expenses);
 
     return $amountExpenses;

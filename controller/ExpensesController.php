@@ -32,7 +32,10 @@ class ExpensesController extends BasicController
     if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
 
       $matchingExpenses = $this->expenses->searchExpenses($_POST['dataSearch']);
+
       return $matchingExpenses;
+    } else {
+      return $matchingExpenses = array();
     }
   }
 
