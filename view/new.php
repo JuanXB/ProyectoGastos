@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <?php
+  $save = false;
+  if (isset($dataToView["data"])) $save = $dataToView["data"]; ?>
   <h1>new</h1>
   <form action="index.php?controller=Expenses&action=new" method="POST">
     Categoria: <input type="text" name="category">
@@ -17,6 +20,15 @@
     Fecha:<input type="date" name="expenseDate">
     <input type="submit" name="enviar" value="Nuevo gasto">
   </form>
+  <?php
+  if (isset($_POST["submit"])) {
+    if ($save) {
+      echo "<p>Gasto guadado con exito</p>";
+    } else {
+      echo "<p>Algo salio mal al intentar guardar el gasto</p>";
+    }
+  }
+  ?>
 </body>
 
 </html>

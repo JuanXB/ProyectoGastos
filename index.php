@@ -8,14 +8,20 @@ require_once 'core/FrontControllerAdm.php';
 $adminController = new FrontControllerAdministrator();
 
 //Cargamos nuestros controladores y las acciones.
+//Se crea un array donde se guardaran los datos de los metodos
+//para pasarselo a las vistas.
+$dataToView["data"] = array();
 
 if (isset($_GET['controller'])) {
   $objController = $adminController->loadController($_GET['controller']);
-  $adminController->launchAction($objController);
+  $dataToView["data"] = $adminController->launchAction($objController);
 } else {
   $objController = $adminController->loadController(DEFAULT_CONTROLLER);
-  $adminController->launchAction($objController);
+  $dataToView["data"] = $adminController->launchAction($objController);
 }
+
+
+
 
 //Cargamos las vistas.
 require_once "view/" . $objController->view . ".php";

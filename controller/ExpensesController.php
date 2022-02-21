@@ -23,8 +23,7 @@ class ExpensesController extends BasicController
     $this->view = "app";
 
     //Se calcula la cantidad de gastos.
-    $amountExpenses = $this->expenses->amountOfExpenses();
-    return $amountExpenses;
+    return $this->expenses->amountOfExpenses();
   }
 
   public function search()
@@ -32,8 +31,8 @@ class ExpensesController extends BasicController
     $this->view = 'search';
     if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
 
-      $data = $this->expenses->searchExpenses($_POST['dataSearch']);
-      return $data;
+      $matchingExpenses = $this->expenses->searchExpenses($_POST['dataSearch']);
+      return $matchingExpenses;
     }
   }
 

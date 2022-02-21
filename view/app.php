@@ -10,9 +10,8 @@
 
 <body>
   <?php
-  if (!isset($amountExpenses)) {
-    $amountExpenses = "0";
-  }
+  $amountExpenses = "0";
+  if (isset($dataToView["data"])) $amountExpenses = $dataToView["data"];
 
   echo "<h1>
          Bienvenido a mi contabilidad doméstica<br>

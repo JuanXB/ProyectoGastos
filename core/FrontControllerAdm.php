@@ -35,20 +35,30 @@ class FrontControllerAdministrator
 
   //Lanza la peticion para cargar el metodo del controlador,
   //si el metodo no existe carga el definido en globals.php
+  //Ademas se crea un array donde se guardaran los datos 
+  //que retornan las acciones del controlador.
   public function launchAction($objController)
   {
-
+    //Se crea un array donde se guardaran los datos de los metodos
+    //para pasarselo a las vista.
+    $dataToView["data"] = array();
     if (isset($_GET['action']) && method_exists($objController,  $_GET['action'])) {
+
       $this->loadAction($objController,  $_GET['action']);
+
+      $dataToView["data"] = $objController->{$_GET['action']}();
+      return $dataToView["data"];
     } else {
       $this->loadAction($objController, DEFAULT_ACTION);
+      $action = (string) DEFAULT_ACTION;
+      $dataToView["data"] = $objController->$action();
+      return $dataToView["data"];
     }
   }
 
   //Crea la url que redrije a la vista.
   public function viewRequired($vista)
   {
-
     require_once 'view/' . $vista . '.php';
   }
 }
