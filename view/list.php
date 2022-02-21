@@ -36,7 +36,7 @@
             <td><?php echo $expense->expensesDate ?></td>
             <td><?php echo $expense->details ?></td>
             <td><a href="">Modificar</a></td>
-            <td><a href="">Borrar</a></td>
+            <td><a href="index.php?controller=Expenses&action=delete&id=<?php echo $expense->id; ?>&view=list">Borrar</a></td>
           </tr>
         <?php
         }

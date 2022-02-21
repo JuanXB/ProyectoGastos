@@ -62,4 +62,23 @@ class ExpensesController extends BasicController
     $this->view = 'list';
     return  $this->expenses->getAll();
   }
+
+  public function delete()
+  {
+    if ($_GET['view'] == 'search') {
+      $this->view = 'search';
+    }
+
+    if ($_GET['view'] == 'list') {
+      $this->view = 'list';
+    }
+
+    if (isset($_GET['id']) && $_GET['id'] != "") {
+      $query = $this->expenses->deleteById($_GET['id']);
+      $this->expenses->runSql($query);
+      return $this->expenses->getAll();
+    }
+
+    return $this->expenses->getAll();
+  }
 }
