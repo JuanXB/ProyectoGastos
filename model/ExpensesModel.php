@@ -35,4 +35,27 @@ class ExpensesModel extends BasicModel
 
     return $resultSet;
   }
+
+
+  public function editExpense($data)
+  {
+    if (isset($data) && !empty($data)) {
+      echo $data->getId();
+      $id = (int) $data->getId();
+      $category = $data->getCategory();
+      $amount = $data->getAmount();
+      $details = $data->getDetails();
+      $expensesDate = $data->getDate();
+
+
+      $query = "UPDATE $this->table 
+            SET category = '$category', 
+            amount = '$amount',
+            expensesDate = '$expensesDate',
+            details = '$details' 
+            WHERE id = $id ;";
+      $resultSet[] = $this->runSql($query);
+      return  $resultSet;
+    }
+  }
 }

@@ -46,7 +46,7 @@ class Expenses extends BasicEntity
 
   public function getDate()
   {
-    return $this->date;
+    return $this->expensesDate;
   }
 
   public function setDate($expensesDate)

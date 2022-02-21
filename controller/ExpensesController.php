@@ -83,4 +83,43 @@ class ExpensesController extends BasicController
       return $this->expenses->getAll();
     }
   }
+
+
+  public function modify()
+  {
+    $this->view = 'modify';
+    if (isset($_GET['id'])) {
+      return $this->expenses->getById($_GET['id']);
+    }
+  }
+
+  public function edit()
+  {
+
+    if (
+      isset($_POST['category']) && $_POST['category'] != "" &&
+      isset($_POST['amount']) && $_POST['amount'] != ""
+    ) {
+
+      $modifiedSpending = new Expenses($this->adapter);
+      $modifiedSpending->setId($_GET['id']);
+      $modifiedSpending->setCategory($_POST['category']);
+      $modifiedSpending->setAmount($_POST['amount']);
+      $modifiedSpending->setDetails($_POST['details']);
+      $modifiedSpending->setDate($_POST['expenseDate']);
+
+      $this->expenses->editExpense($modifiedSpending);
+    }
+    if ($_GET['view'] == 'search') {
+      $this->view = 'search';
+      //TODO: hacer que devuelva el array 
+      //con el ultimo input que se uso.
+      return  array();
+    }
+
+    if ($_GET['view'] == 'list') {
+      $this->view = 'list';
+      return $this->expenses->getAll();
+    }
+  }
 }
