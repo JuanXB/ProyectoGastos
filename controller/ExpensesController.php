@@ -97,16 +97,17 @@ class ExpensesController extends BasicController
   {
 
     if (
-      isset($_POST['category']) && $_POST['category'] != "" &&
-      isset($_POST['amount']) && $_POST['amount'] != ""
+      isset($_POST['category']) && isset($_POST['amount'])
     ) {
 
       $modifiedSpending = new Expenses($this->adapter);
+      $originalExpense = $this->expenses->getById($_GET['id']);
       $modifiedSpending->setId($_GET['id']);
-      $modifiedSpending->setCategory($_POST['category']);
-      $modifiedSpending->setAmount($_POST['amount']);
-      $modifiedSpending->setDetails($_POST['details']);
-      $modifiedSpending->setDate($_POST['expenseDate']);
+      $modifiedSpending->setCategory($this->expenses->setDataToModify($originalExpense->category, $_POST['category']));
+      $modifiedSpending->setAmount($this->expenses->setDataToModify($originalExpense->amount, $_POST['amount']));
+      $modifiedSpending->setDetails($this->expenses->setDataToModify($originalExpense->details, $_POST['details']));
+      $modifiedSpending->setDate($this->expenses->setDataToModify($originalExpense->expensesDate, $_POST['expenseDate']));
+
 
       $this->expenses->editExpense($modifiedSpending);
     }

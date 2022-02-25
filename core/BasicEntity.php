@@ -77,5 +77,14 @@ class BasicEntity
     return $query;
   }
 
+
+  public function setDataToModify($originalData, $newData)
+  {
+    if (isset($newData) && !empty($newData)) {
+      return $newData;
+    } else return $originalData;
+  }
+
+
   //TODO: se pueden agregar mas metodos de consulta.
 }
