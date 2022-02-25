@@ -42,6 +42,7 @@ class ExpensesModel extends BasicModel
   public function editExpense($data)
   {
     if (isset($data) && !empty($data)) {
+      //Obtencion de datos y escapado de caracteres especiales.
       $id = $this->db()->real_escape_string($data->getId());
       $category =  $this->db()->real_escape_string($data->getCategory());
       $amount =  $this->db()->real_escape_string($data->getAmount());

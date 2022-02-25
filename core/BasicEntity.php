@@ -60,6 +60,7 @@ class BasicEntity
 
   public function getById($id)
   {
+    $id = $this->db()->real_escape_string($this->id);
     $query = $this->db->query("SELECT * FROM $this->table WHERE id=$id");
 
     if ($row = $query->fetch_object()) {
@@ -71,6 +72,7 @@ class BasicEntity
 
   public function getBy($column, $value)
   {
+    $value = $this->db()->real_escape_string($value);
     $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
 
     if ($row = $query->fetch_object()) {
@@ -82,12 +84,14 @@ class BasicEntity
 
   public function deleteById($id)
   {
+    $id = $this->db()->real_escape_string($id);
     $query = $this->db->query("DELETE FROM $this->table WHERE id=$id");
     return $query;
   }
 
   public function deleteby($column, $value)
   {
+    $value = $this->db()->real_escape_string($value);
     $query = $this->db->query("DELETE FROM $this->table WHERE $column = '$value'");
 
     return $query;

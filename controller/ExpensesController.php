@@ -102,6 +102,9 @@ class ExpensesController extends BasicController
 
       $modifiedSpending = new Expenses($this->adapter);
       $originalExpense = $this->expenses->getById($_GET['id']);
+
+      //Se verifica cuales datos se han modificado,
+      //si el dato esta vacio se deja por default el original.
       $modifiedSpending->setId($_GET['id']);
       $modifiedSpending->setCategory($this->expenses->setDataToModify($originalExpense->category, $_POST['category']));
       $modifiedSpending->setAmount($this->expenses->setDataToModify($originalExpense->amount, $_POST['amount']));
@@ -120,7 +123,7 @@ class ExpensesController extends BasicController
 
     if ($_GET['view'] == 'list') {
       $this->view = 'list';
-      return $this->expenses->getAll();
+      return $this->expenses->getAllByColumDesc("expensesDate");
     }
   }
 }
