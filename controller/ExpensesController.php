@@ -60,7 +60,7 @@ class ExpensesController extends BasicController
   public function list()
   {
     $this->view = 'list';
-    return  $this->expenses->getAll();
+    return  $this->expenses->getAllByColumDesc("expensesDate");
   }
 
   public function delete()

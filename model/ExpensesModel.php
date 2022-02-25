@@ -20,6 +20,8 @@ class ExpensesModel extends BasicModel
 
   public function searchExpenses($data)
   {
+    $data = $this->db()->real_escape_string($data);
+
     $query = "SELECT * FROM $this->table
               WHERE category  LIKE '%$data%'  OR
               details LIKE '%$data%' 
@@ -40,11 +42,11 @@ class ExpensesModel extends BasicModel
   public function editExpense($data)
   {
     if (isset($data) && !empty($data)) {
-      $id =  $data->getId();
-      $category = $data->getCategory();
-      $amount = $data->getAmount();
-      $details = $data->getDetails();
-      $expensesDate = $data->getDate();
+      $id = $this->db()->real_escape_string($data->getId());
+      $category =  $this->db()->real_escape_string($data->getCategory());
+      $amount =  $this->db()->real_escape_string($data->getAmount());
+      $details =  $this->db()->real_escape_string($data->getDetails());
+      $expensesDate =  $this->db()->real_escape_string($data->getDate());
 
 
       $query = "UPDATE expenses SET category = '$category', amount = '$amount', expensesDate = '$expensesDate', details = '$details' WHERE id = $id ;";

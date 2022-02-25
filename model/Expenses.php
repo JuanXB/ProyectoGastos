@@ -54,23 +54,29 @@ class Expenses extends BasicEntity
     $this->expensesDate = $expensesDate;
   }
 
-  public function getdetails()
+  public function getDetails()
   {
     return $this->details;
   }
 
-  public function setdetails($details)
+  public function setDetails($details)
   {
     $this->details = $details;
   }
 
   public function save()
   {
+
+    $category = $this->db()->real_escape_string($this->category);
+    $amount = $this->db()->real_escape_string($this->amount);
+    $expensesDate = $this->db()->real_escape_string($this->expensesDate);
+    $details = $this->db()->real_escape_string($this->details);
+
     $query = "INSERT INTO expenses(category, amount, expensesDate, details)
-              VALUES ('" . $this->category . "',
-                      '" . $this->amount . "',
-                      '" . $this->expensesDate . "',
-                      '" . $this->details . "');";
+              VALUES ('" . $category . "',
+                      '" . $amount . "',
+                      '" . $expensesDate . "',
+                      '" . $details . "');";
 
     $save = $this->db()->query($query);
 

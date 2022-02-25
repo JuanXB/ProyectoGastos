@@ -41,6 +41,22 @@ class BasicEntity
     return $resultSet;
   }
 
+  public function getAllByColumDesc($column)
+  {
+    $column = $this->db()->real_escape_string($column);
+    $query = $this->db->query("SELECT * FROM $this->table ORDER BY $column DESC");
+    //Devolvemos el result set en forma de array de objetos. 
+
+    while ($row = $query->fetch_object()) {
+      $resultSet[] = $row;
+    }
+    if (!isset($resultSet)) {
+      $resultSet = array();
+    }
+    return $resultSet;
+  }
+
+
 
   public function getById($id)
   {
