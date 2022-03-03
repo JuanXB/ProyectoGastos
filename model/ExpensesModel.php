@@ -22,12 +22,30 @@ class ExpensesModel extends BasicModel
   {
     $data = $this->db()->real_escape_string($data);
 
+    $dataCategory = "%$data%";
+
     $query = "SELECT * FROM $this->table
-              WHERE category  LIKE '%$data%'  OR
-              details LIKE '%$data%' 
+              WHERE category  LIKE ? 
               ORDER BY expensesDate DESC;";
 
-    $resultSet = $this->runSql($query);
+    $statment = $this->db()->prepare($query);
+    $statment->bind_param("s", $dataCategory);
+    $statment->execute();
+    $result = $statment->get_result();
+
+
+    // if ($row = $result->fetch_assoc()) {
+    //   $resultSet = $row;
+    // } else {
+    while ($row =  $result->fetch_assoc()) {
+      $resultSet[] = $row;
+    }
+    if (!isset($resultSet)) {
+      $resultSet = array();
+    }
+    // }
+
+
 
     //Si la consulta se realizo con exito pero
     //no se encontro ningun match se devuelve un array vacio.
@@ -50,8 +68,16 @@ class ExpensesModel extends BasicModel
       $expensesDate =  $this->db()->real_escape_string($data->getDate());
 
 
-      $query = "UPDATE expenses SET category = '$category', amount = '$amount', expensesDate = '$expensesDate', details = '$details' WHERE id = $id ;";
-      return $this->runUpdate($query);
+      $query = "UPDATE expenses SET category = ?, amount = ?, expensesDate = ?, details = ? WHERE id = ? ;";
+
+      $statment = $this->db()->prepare($query);
+      $statment->bind_param("sdssi", $category, $amount, $expensesDate, $details, $id);
+      $statment->execute();
+      $result = $statment->fetch();
+
+
+
+      return $result;
     }
   }
 }

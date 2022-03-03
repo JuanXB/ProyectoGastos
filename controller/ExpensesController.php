@@ -67,8 +67,7 @@ class ExpensesController extends BasicController
   {
 
     if (isset($_GET['id']) && $_GET['id'] != "") {
-      $query = $this->expenses->deleteById($_GET['id']);
-      $this->expenses->runSql($query);
+      $this->expenses->deleteById($_GET['id']);
     }
 
     if ($_GET['view'] == 'search') {
@@ -80,7 +79,7 @@ class ExpensesController extends BasicController
 
     if ($_GET['view'] == 'list') {
       $this->view = 'list';
-      return $this->expenses->getAll();
+      return $this->expenses->getAllByColumDesc("expensesDate");
     }
   }
 

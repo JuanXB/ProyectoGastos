@@ -72,13 +72,14 @@ class Expenses extends BasicEntity
     $expensesDate = $this->db()->real_escape_string($this->expensesDate);
     $details = $this->db()->real_escape_string($this->details);
 
-    $query = "INSERT INTO expenses(category, amount, expensesDate, details)
-              VALUES ('" . $category . "',
-                      '" . $amount . "',
-                      '" . $expensesDate . "',
-                      '" . $details . "');";
 
-    $save = $this->db()->query($query);
+    $query = "INSERT INTO expenses(category, amount, expensesDate, details)
+              VALUES ( ?, ?, ?, ?);";
+    $statment = $this->db()->prepare($query);
+    $statment->bind_param("sdss", $category, $amount, $expensesDate, $details);
+    $save = $statment->execute();
+
+    $statment->close();
 
     return $save;
   }

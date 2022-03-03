@@ -29,7 +29,7 @@ class BasicEntity
 
   public function getAll()
   {
-    $query = $this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
+    $query = $this->db()->query("SELECT * FROM $this->table ORDER BY id DESC");
     //Devolvemos el result set en forma de array de objetos. 
 
     while ($row = $query->fetch_object()) {
@@ -44,7 +44,9 @@ class BasicEntity
   public function getAllByColumDesc($column)
   {
     $column = $this->db()->real_escape_string($column);
-    $query = $this->db->query("SELECT * FROM $this->table ORDER BY $column DESC");
+    $query = "SELECT * FROM $this->table ORDER BY $column DESC";
+    $query = $this->db()->query($query);
+
     //Devolvemos el result set en forma de array de objetos. 
 
     while ($row = $query->fetch_object()) {
@@ -60,8 +62,8 @@ class BasicEntity
 
   public function getById($id)
   {
-    $id = $this->db()->real_escape_string($this->id);
-    $query = $this->db->query("SELECT * FROM $this->table WHERE id=$id");
+
+    $query = $this->db()->query("SELECT * FROM $this->table WHERE id=$id");
 
     if ($row = $query->fetch_object()) {
       $resultSet = $row;
@@ -72,10 +74,18 @@ class BasicEntity
 
   public function getBy($column, $value)
   {
-    $value = $this->db()->real_escape_string($value);
-    $query = $this->db->query("SELECT * FROM $this->table WHERE $column = '$value'");
+    $value = $this->db->real_escape_string($value);
+    $query = "SELECT * FROM $this->table WHERE $column = ?";
+    $statment = $this->db()->prepare($query);
 
-    if ($row = $query->fetch_object()) {
+    if (is_numeric($value)) {
+      $statment->bind_param("d", $value);
+    } else {
+      $statment->bind_param("s", $value);
+    }
+    $statment->execute();
+
+    if ($row = $statment->fetch()) {
       $resultSet = $row;
     }
 
@@ -84,17 +94,23 @@ class BasicEntity
 
   public function deleteById($id)
   {
-    $id = $this->db()->real_escape_string($id);
+    $id = $this->db->real_escape_string($id);
     $query = $this->db->query("DELETE FROM $this->table WHERE id=$id");
     return $query;
   }
 
-  public function deleteby($column, $value)
+  public function deleteBy($column, $value)
   {
     $value = $this->db()->real_escape_string($value);
-    $query = $this->db->query("DELETE FROM $this->table WHERE $column = '$value'");
+    $query = "DELETE FROM $this->table WHERE $column = ?";
+    $statment = $this->db()->prepare($query);
 
-    return $query;
+    if (is_numeric($value)) {
+      $statment->bind_param("d", $value);
+    } else {
+      $statment->bind_param("s", $value);
+    }
+    return $statment->execute();
   }
 
 
