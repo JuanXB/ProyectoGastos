@@ -25,11 +25,12 @@ class ExpensesModel extends BasicModel
     $dataCategory = "%$data%";
 
     $query = "SELECT * FROM $this->table
-              WHERE category  LIKE ? 
+              WHERE category  LIKE ? OR
+              details LIKE ?
               ORDER BY expensesDate DESC;";
 
     $statment = $this->db()->prepare($query);
-    $statment->bind_param("s", $dataCategory);
+    $statment->bind_param("ss", $dataCategory, $dataCategory);
     $statment->execute();
     $result = $statment->get_result();
 
