@@ -33,6 +33,8 @@ class ExpensesModel extends BasicModel
     $statment->execute();
     $result = $statment->get_result();
 
+    $statment->close();
+
 
     // if ($row = $result->fetch_assoc()) {
     //   $resultSet = $row;
@@ -61,22 +63,21 @@ class ExpensesModel extends BasicModel
   {
     if (isset($data) && !empty($data)) {
       //Obtencion de datos y escapado de caracteres especiales.
-      $id = $this->db()->real_escape_string($data->getId());
+      $id =  $this->db()->real_escape_string($data->getId());
       $category =  $this->db()->real_escape_string($data->getCategory());
-      $amount =  $this->db()->real_escape_string($data->getAmount());
+      $amount = $this->db()->real_escape_string($data->getAmount());
       $details =  $this->db()->real_escape_string($data->getDetails());
       $expensesDate =  $this->db()->real_escape_string($data->getDate());
 
 
-      $query = "UPDATE expenses SET category = ?, amount = ?, expensesDate = ?, details = ? WHERE id = ? ;";
+      $query = "UPDATE expenses SET category = ? , amount = ? , expensesDate = ? , details = ? WHERE id = ? ;";
 
       $statment = $this->db()->prepare($query);
       $statment->bind_param("sdssi", $category, $amount, $expensesDate, $details, $id);
-      $statment->execute();
-      $result = $statment->fetch();
+      $result = $statment->execute();
 
 
-
+      $statment->close();
       return $result;
     }
   }

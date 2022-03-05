@@ -94,6 +94,7 @@ class ExpensesController extends BasicController
 
   public function edit()
   {
+    $redirect_view = $_GET['view'];
 
     if (
       isset($_POST['category']) && isset($_POST['amount'])
@@ -102,25 +103,25 @@ class ExpensesController extends BasicController
       $modifiedSpending = new Expenses($this->adapter);
       $originalExpense = $this->expenses->getById($_GET['id']);
 
+
       //Se verifica cuales datos se han modificado,
       //si el dato esta vacio se deja por default el original.
-      $modifiedSpending->setId($_GET['id']);
+      $modifiedSpending->setId($originalExpense->id);
       $modifiedSpending->setCategory($this->expenses->setDataToModify($originalExpense->category, $_POST['category']));
       $modifiedSpending->setAmount($this->expenses->setDataToModify($originalExpense->amount, $_POST['amount']));
       $modifiedSpending->setDetails($this->expenses->setDataToModify($originalExpense->details, $_POST['details']));
       $modifiedSpending->setDate($this->expenses->setDataToModify($originalExpense->expensesDate, $_POST['expenseDate']));
 
 
-      $this->expenses->editExpense($modifiedSpending);
+      $result = $this->expenses->editExpense($modifiedSpending);
     }
-    if ($_GET['view'] == 'search') {
+
+    if ($redirect_view == 'search') {
       $this->view = 'search';
       //TODO: hacer que devuelva el array 
       //con el ultimo input que se uso.
       return  array();
-    }
-
-    if ($_GET['view'] == 'list') {
+    } else if ($redirect_view == 'list') {
       $this->view = 'list';
       return $this->expenses->getAllByColumDesc("expensesDate");
     }

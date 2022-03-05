@@ -34,12 +34,4 @@ class BasicModel extends BasicEntity
 
     return $resultSet;
   }
-
-  public function runUpdate($query)
-  {
-    $query = $this->db()->query($query);
-    if ($query) {
-      return true;
-    } else return false;
-  }
 }

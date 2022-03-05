@@ -34,7 +34,6 @@
       </thead>
       <tbody>
         <?php
-        echo count($matchingExpenses);
         foreach ($matchingExpenses as $expense) {
 
         ?>
