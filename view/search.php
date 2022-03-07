@@ -42,7 +42,3 @@ if (!empty($matchingExpenses)) {
 <?php
 }
 ?>
-
-</body>
-
-</html>

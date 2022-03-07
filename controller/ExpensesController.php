@@ -6,6 +6,7 @@ class ExpensesController extends BasicController
   public $adapter;
   public $expenses;
   public $view;
+  public $redirectView;
 
   public function __construct()
   {
@@ -14,6 +15,7 @@ class ExpensesController extends BasicController
     $this->adapter = $this->connect->conexion();
     $this->expenses = new ExpensesModel($this->adapter);
     $this->view = DEFAULT_ACTION;
+    $this->redirectView = DEFAULT_ACTION;
   }
 
   public function header()
@@ -90,6 +92,7 @@ class ExpensesController extends BasicController
   public function modify()
   {
     $this->view = 'modify';
+    $this->redirectView = $_GET['view'];
 
     if (isset($_GET['id'])) {
       return $this->expenses->getById($_GET['id']);
@@ -98,7 +101,7 @@ class ExpensesController extends BasicController
 
   public function edit()
   {
-    $redirect_view = $_GET['view'];
+    $this->redirectView = $_GET['view'];
 
     if (
       isset($_POST['category']) && isset($_POST['amount'])
@@ -118,16 +121,19 @@ class ExpensesController extends BasicController
 
       //Confirmacion si se modifico. TODO: usarla para cartel de confirmacion.
       $result = $this->expenses->editExpense($modifiedSpending);
-    }
 
-    if ($redirect_view == 'search') {
-      $this->view = 'search';
-      //TODO: hacer que devuelva el array 
-      //con el ultimo input que se uso.
-      return  array();
-    } else if ($redirect_view == 'list') {
-      $this->view = 'list';
-      return $this->expenses->getAllByColumDesc("expensesDate");
+      if ($this->redirectView == 'search') {
+        $this->view = 'search';
+
+        //TODO: hacer que devuelva el array 
+        //con el ultimo input que se uso.
+        return  array();
+      }
+      if ($this->redirectView == 'list') {
+        $this->view = 'list';
+
+        return $this->expenses->getAllByColumDesc("expensesDate");
+      }
     }
   }
 }

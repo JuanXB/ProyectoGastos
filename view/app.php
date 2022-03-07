@@ -4,6 +4,3 @@
   <a href="index.php?controller=Expenses&action=list" id="list">Lista de gastos</a>
 
 </div>
-</body>
-
-</html>

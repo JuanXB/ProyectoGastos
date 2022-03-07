@@ -35,6 +35,3 @@ if (!empty($allExpenses)) {
 <?php
 }
 ?>
-</body>
-
-</html>
