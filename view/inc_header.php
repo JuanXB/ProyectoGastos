@@ -9,3 +9,10 @@
  </head>
 
  <body>
+   <?php
+    $amountExpenses = $objController->header();
+    ?>
+
+   <header>
+     <h1>Cantidad de anotaciones de Gastos <?php echo $amountExpenses ?> </h1>
+   </header>

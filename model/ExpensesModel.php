@@ -82,4 +82,12 @@ class ExpensesModel extends BasicModel
       return $result;
     }
   }
+
+  public function changeFormatDateForView($date)
+  {
+    if (isset($date) && !empty($date)) {
+      $newDateFormat = new DateTime($date);
+      return $newDateFormat->format('d/m/Y');
+    }
+  }
 }

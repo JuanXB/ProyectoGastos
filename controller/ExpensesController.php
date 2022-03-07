@@ -16,14 +16,17 @@ class ExpensesController extends BasicController
     $this->view = DEFAULT_ACTION;
   }
 
-  //TODO: hacer que las variables sean llamadas desde la pagina
-  // y no desde la clase para que no aparezcan como "not used".
+  public function header()
+  {
+
+    $amountExpenses = $this->expenses->amountOfExpenses();
+    //Se calcula la cantidad de gastos.
+    return $amountExpenses;
+  }
+
   public function app()
   { //Se establece cual es el nombre de la vista.
-    $this->view = "app";
-
-    //Se calcula la cantidad de gastos.
-    return $this->expenses->amountOfExpenses();
+    $this->view = 'app';
   }
 
   public function search()
@@ -87,6 +90,7 @@ class ExpensesController extends BasicController
   public function modify()
   {
     $this->view = 'modify';
+
     if (isset($_GET['id'])) {
       return $this->expenses->getById($_GET['id']);
     }
@@ -112,7 +116,7 @@ class ExpensesController extends BasicController
       $modifiedSpending->setDetails($this->expenses->setDataToModify($originalExpense->details, $_POST['details']));
       $modifiedSpending->setDate($this->expenses->setDataToModify($originalExpense->expensesDate, $_POST['expenseDate']));
 
-
+      //Confirmacion si se modifico. TODO: usarla para cartel de confirmacion.
       $result = $this->expenses->editExpense($modifiedSpending);
     }
 
