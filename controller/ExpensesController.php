@@ -56,7 +56,16 @@ class ExpensesController extends BasicController
       $expense->setCategory($_POST['category']);
       $expense->setAmount($_POST['amount']);
       $expense->setDetails($_POST['details']);
-      $expense->setDate($_POST['expenseDate']);
+
+      //Se verifica si la fecha a sido especificada ,
+      //si no es asi se establece la fecha actual.
+      $date = $_POST['expenseDate'];
+      if (empty($date)) {
+        $date = date('Y/m/d', time());
+      }
+      $expense->setDate($date);
+
+
       $save = $expense->save();
       return $save;
     }
