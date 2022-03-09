@@ -8,8 +8,6 @@ deny from all
 
 </files>
 
-
-
 #evitar listado de directorios
 
 IndexIgnore *

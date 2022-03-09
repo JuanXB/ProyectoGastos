@@ -21,6 +21,9 @@ if (isset($_GET['controller'])) {
 }
 
 //Cargamos las vistas.
-require_once "view/inc_header.php";
+if ($objController->view != 'app') {
+
+  require_once "view/inc_header.php";
+}
 require_once "view/" . $objController->view . ".php";
 require_once "view/inc_footer.php";

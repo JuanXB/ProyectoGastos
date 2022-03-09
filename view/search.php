@@ -1,7 +1,6 @@
 <?php
 if (isset($dataToView["data"])) $matchingExpenses = $dataToView["data"];
 ?>
-<h1>search</h1>
 <form action="index.php?controller=Expenses&action=search" class="search" method="POST">
   <input type="text" name="dataSearch" require>
   <input type="submit" value="Buscar">
