@@ -16,10 +16,10 @@
   <div class="contenedor">
     <header>
       <h1>Aplicacion para administración de gastos</h1>
-      <h2>Cantidad de Gastos <?php echo $amountExpenses ?> </h2>
+      <h2>Cantidad de Gastos almacenados <?php echo $amountExpenses ?> </h2>
     </header>
     <div class="option">
-      <a href="index.php?controller=Expenses&action=search" id="search">Buscar</a>
+      <a href="index.php?controller=Expenses&action=search" id="search">Buscar gasto</a>
       <a href="index.php?controller=Expenses&action=new" id="new">Nuevo gasto</a>
       <a href="index.php?controller=Expenses&action=list" id="list">Lista de gastos</a>
 

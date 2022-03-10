@@ -1,8 +1,8 @@
 <?php
-$DateAndTime = date('m-d-Y h:i:s a', time());
+$dateAndTime = date('m-d-Y h:i:s a', time());
 ?>
 <footer>
-  <h2><?php echo "La fecha y hora actual es  $DateAndTime."; ?></h2>
+  <h2><?php echo "Fecha y hora : $dateAndTime."; ?></h2>
 </footer>
 </div>
 </body>

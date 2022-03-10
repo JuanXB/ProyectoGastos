@@ -6,7 +6,7 @@
 
 body {
   min-height: 100vh;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(34, 40, 49);
 
   text-align: center;
 
@@ -20,7 +20,7 @@ body {
   min-height: 99vh;
   width: 100%;
   max-width: 1280px;
-  background-color: rgb(34, 40, 49);
+  background-color: rgb(57, 62, 70, 0.2);
 }
 
 header {
@@ -43,19 +43,31 @@ nav {
 
 nav li {
   display: inline-block;
-  color: rgb(238, 238, 238);
+  height: 100%;
+  width: auto;
   margin: 1rem;
 }
+
+
 
 li a {
   text-decoration: none;
   color: rgb(238, 238, 238);
   font-size: 27px;
+  width: auto;
+  height: 100%;
 }
 
+
+li a:hover {
+  text-decoration: underline;
+}
+
+
+
 .option {
-  height: 20rem;
-  border: 1px solid #000;
+  height: 23rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,25 +87,56 @@ li a {
   text-align: center;
   color: #fff;
   border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  box-shadow: 0 5px 2px #999;
 }
 
+
 #search {
-  background-color: aqua;
+  background-color: rgb(17, 70, 143);
+}
+
+#search:hover {
+  background-color: rgb(17, 70, 143, 0.5);
+}
+
+#search:active {
+  background-color: rgb(17, 70, 143);
+  box-shadow: 0 2px 1px #666;
+  transform: translateY(4px);
 }
 
 #new {
-  background-color: blueviolet;
+  background-color: rgb(121, 82, 179);
 }
 
+#new:hover {
+  background-color: rgb(121, 82, 179, 0.5);
+}
+
+
+#new:active {
+  background-color: rgb(121, 82, 179);
+  box-shadow: 0 2px 1px #666;
+  transform: translateY(4px);
+}
+
+
 #list {
-  background-color: chartreuse;
+  background-color: rgb(224, 176, 0);
+}
+
+#list:hover {
+  background-color: rgb(224, 176, 0, 0.5);
+}
+
+#list:active {
+  background-color: rgb(224, 176, 0);
+  box-shadow: 0 2px 1px #666;
+  transform: translateY(4px);
 }
 
 footer {
+  font-size: small;
   margin: 2rem 0rem;
   color: rgb(238, 238, 238)
 }
