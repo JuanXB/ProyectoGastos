@@ -15,7 +15,7 @@
   ?>
   <div class="contenedor">
     <header>
-      <h1>Aplicacion para administración de gastos</h1>
+      <h1 class="tituloApp">Aplicacion para administración de gastos</h1>
       <h2>Cantidad de Gastos almacenados <?php echo $amountExpenses ?> </h2>
     </header>
     <div class="option">
