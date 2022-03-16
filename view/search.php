@@ -3,7 +3,7 @@ if (isset($dataToView["data"])) $matchingExpenses = $dataToView["data"];
 ?>
 <form action="index.php?controller=Expenses&action=search" class="formSearch" method="POST">
 
-  <input type="text" name="dataSearch" class="inputSearch" require>
+  <input type="text" name="dataSearch" class="inputSearch" autofocus require>
   <input type="submit" value="Buscar" class="buttomSearch">
 </form>
 <?php

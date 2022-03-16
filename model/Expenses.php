@@ -70,7 +70,7 @@ class Expenses extends BasicEntity
     $category = $this->db()->real_escape_string($this->category);
     $amount = $this->db()->real_escape_string($this->amount);
     $expensesDate = $this->db()->real_escape_string($this->expensesDate);
-    $details = $this->db()->real_escape_string($this->details);
+    $details = trim($this->db()->real_escape_string($this->details), "\t\n\r");
 
 
     $query = "INSERT INTO expenses(category, amount, expensesDate, details)
