@@ -1,9 +1,10 @@
 <?php
 if (isset($dataToView["data"])) $matchingExpenses = $dataToView["data"];
 ?>
-<form action="index.php?controller=Expenses&action=search" class="search" method="POST">
-  <input type="text" name="dataSearch" require>
-  <input type="submit" value="Buscar">
+<form action="index.php?controller=Expenses&action=search" class="formSearch" method="POST">
+
+  <input type="text" name="dataSearch" class="inputSearch" require>
+  <input type="submit" value="Buscar" class="buttomSearch">
 </form>
 <?php
 if (!empty($matchingExpenses)) {

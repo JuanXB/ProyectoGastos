@@ -1,8 +1,7 @@
 <?php
 $save = false;
 if (isset($dataToView["data"])) $save = $dataToView["data"]; ?>
-<h1>new</h1>
-<form action="index.php?controller=Expenses&action=new" method="POST">
+<form action="index.php?controller=Expenses&action=new" class="formNew" method="POST">
   Categoria: <input type="text" name="category">
   Cantidad de dinero<input type="number" name="amount">
   Descripción: <textarea name="details" id="" cols="30" rows="10"></textarea>

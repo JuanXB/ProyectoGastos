@@ -199,6 +199,47 @@ td {
   font-size: 17px;
 }
 
+/* Input de search.php */
+
+.formSearch {
+  max-width: 100%;
+  width: 1200px;
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+}
+
+.inputSearch {
+  border: none;
+  height: 3rem;
+  width: 20rem;
+  max-width: 70%;
+  font-size: 18px;
+  border-radius: 5px 0px 0px 5px;
+  -webkit-border-radius: 5px 0px 0px 5px;
+  -moz-border-radius: 5px 0px 0px 5px;
+  -ms-border-radius: 5px 0px 0px 5px;
+  -o-border-radius: 5px 0px 0px 5px;
+}
+
+.buttomSearch {
+  border: none;
+  min-height: 2rem;
+  height: 3rem;
+  width: 4rem;
+  background-color: rgb(17, 70, 143);
+  color: rgb(238, 238, 238);
+  font-size: 17px;
+  letter-spacing: 1px;
+  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -ms-border-radius: 0px 5px 5px 0px;
+  -o-border-radius: 0px 5px 5px 0px;
+}
+
+
 /* Footer de todas las paginas en común */
 footer {
   font-size: small;
