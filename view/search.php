@@ -32,8 +32,14 @@ if (!empty($matchingExpenses)) {
             <td><?php echo $expense['amount']; ?></td>
             <td><?php echo $expense['details']; ?></td>
             <td><?php echo $objController->expenses->changeFormatDateForView($expense['expensesDate']); ?></td>
-            <td><a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense['id']; ?>&view=search">Modificar</a></td>
-            <td><a href="index.php?controller=Expenses&action=delete&id=<?php echo $expense['id']; ?>&view=search">Borrar</a></td>
+            <td>
+              <div class="btmEdit"><a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense['id']; ?>&view=search">Editar</a></div>
+            </td>
+            <td>
+              <div class="btmDelete">
+                <a href="index.php?controller=Expenses&action=delete&id=<?php echo $expense['id']; ?>&view=search">Borrar</a>
+              </div>
+            </td>
           </tr>
         <?php
         }

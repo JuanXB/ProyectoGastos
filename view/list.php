@@ -28,8 +28,16 @@ if (!empty($allExpenses)) {
               <p><?php echo $expense->details; ?></p>
             </td>
             <td><?php echo  $objController->expenses->changeFormatDateForView($expense->expensesDate); ?></td>
-            <td><a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense->id; ?>&view=list">Modificar</a></td>
-            <td><a href="index.php?controller=Expenses&action=delete&id=<?php echo $expense->id; ?>&view=list">Borrar</a></td>
+            <td>
+              <div class="btmEdit">
+                <a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense->id; ?>&view=list">Editar</a>
+              </div>
+            </td>
+            <td>
+              <div class="btmDelete">
+                <a href="index.php?controller=Expenses&action=delete&id=<?php echo $expense->id; ?>&view=list">Borrar</a>
+              </div>
+            </td>
           </tr>
         <?php
         }
