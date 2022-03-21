@@ -7,6 +7,7 @@ class ExpensesController extends BasicController
   public $expenses;
   public $view;
   public $redirectView;
+  public $titlePage;
 
   public function __construct()
   {
@@ -16,6 +17,7 @@ class ExpensesController extends BasicController
     $this->expenses = new ExpensesModel($this->adapter);
     $this->view = DEFAULT_ACTION;
     $this->redirectView = DEFAULT_ACTION;
+    $this->titlePage = 'Page';
   }
 
   public function header()
@@ -29,11 +31,14 @@ class ExpensesController extends BasicController
   public function app()
   { //Se establece cual es el nombre de la vista.
     $this->view = 'app';
+    $this->titlePage = "Menu";
   }
 
   public function search()
   {
     $this->view = 'search';
+    $this->titlePage = "Buscar Gasto";
+
     if (isset($_POST['dataSearch']) && $_POST['dataSearch'] != "") {
 
       $matchingExpenses = $this->expenses->searchExpenses($_POST['dataSearch']);
@@ -47,6 +52,8 @@ class ExpensesController extends BasicController
   public function new()
   {
     $this->view = 'new';
+    $this->titlePage = "Nuevo Gasto";
+
     if (
       isset($_POST['category']) && $_POST['category'] != "" &&
       isset($_POST['amount']) && $_POST['amount'] != ""
@@ -74,6 +81,8 @@ class ExpensesController extends BasicController
   public function list()
   {
     $this->view = 'list';
+    $this->titlePage = "Lista de Gastos";
+
     return  $this->expenses->getAllByColumDesc("expensesDate");
   }
 
@@ -86,6 +95,8 @@ class ExpensesController extends BasicController
 
     if ($_GET['view'] == 'search') {
       $this->view = 'search';
+      $this->titlePage = "Buscar Gasto";
+
       //TODO: hacer que devuelva el array 
       //con el ultimo input que se uso.
       return  array();
@@ -93,6 +104,8 @@ class ExpensesController extends BasicController
 
     if ($_GET['view'] == 'list') {
       $this->view = 'list';
+      $this->titlePage = "Lista de Gastos";
+
       return $this->expenses->getAllByColumDesc("expensesDate");
     }
   }
@@ -133,13 +146,14 @@ class ExpensesController extends BasicController
 
       if ($this->redirectView == 'search') {
         $this->view = 'search';
+        $this->titlePage = "Buscar Gasto";
 
-        //TODO: hacer que devuelva el array 
-        //con el ultimo input que se uso.
         return  array();
       }
       if ($this->redirectView == 'list') {
         $this->view = 'list';
+        $this->titlePage = "Lista de Gastos";
+
 
         return $this->expenses->getAllByColumDesc("expensesDate");
       }

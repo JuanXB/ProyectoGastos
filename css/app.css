@@ -231,6 +231,15 @@ td {
   background-color: #f44336;
 }
 
+.btmDelete:hover {
+  background-color: #6d110a;
+}
+
+
+.btmEdit:hover {
+  background-color: #065e09;
+}
+
 /* Input de search.php */
 
 .formSearch {
