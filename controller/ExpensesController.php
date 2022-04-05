@@ -22,9 +22,9 @@ class ExpensesController extends BasicController
 
   public function header()
   {
-
-    $amountExpenses = $this->expenses->amountOfExpenses();
     //Se calcula la cantidad de gastos.
+    $amountExpenses = $this->expenses->amountOfExpenses();
+
     return $amountExpenses;
   }
 
