@@ -37,17 +37,12 @@ class ExpensesModel extends BasicModel
     $statment->close();
 
 
-    // if ($row = $result->fetch_assoc()) {
-    //   $resultSet = $row;
-    // } else {
     while ($row =  $result->fetch_assoc()) {
-      $resultSet[] = $row;
+      $resultSet[] = (object) $row;
     }
     if (!isset($resultSet)) {
       $resultSet = array();
     }
-    // }
-
 
 
     //Si la consulta se realizo con exito pero

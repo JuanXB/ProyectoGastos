@@ -6,12 +6,12 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/app.css">
-   <title><?php echo $objController->titlePage; ?></title>
+   <title><?php echo $Controller->titlePage; ?></title>
  </head>
 
  <body>
    <?php
-    $amountExpenses = $objController->header();
+    $amountExpenses = $Controller->header();
     ?>
    <div class="contenedor">
      <header>

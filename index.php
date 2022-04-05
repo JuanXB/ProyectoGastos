@@ -13,17 +13,17 @@ $adminController = new FrontControllerAdministrator();
 $dataToView["data"] = array();
 
 if (isset($_GET['controller'])) {
-  $objController = $adminController->loadController($_GET['controller']);
-  $dataToView["data"] = $adminController->launchAction($objController);
+  $Controller = $adminController->loadController($_GET['controller']);
+  $dataToView["data"] = $adminController->launchAction($Controller);
 } else {
-  $objController = $adminController->loadController(DEFAULT_CONTROLLER);
-  $dataToView["data"] = $adminController->launchAction($objController);
+  $Controller = $adminController->loadController(DEFAULT_CONTROLLER);
+  $dataToView["data"] = $adminController->launchAction($Controller);
 }
 
 //Cargamos las vistas.
-if ($objController->view != 'app') {
+if ($Controller->view != 'app') {
 
   require_once "view/inc_header.php";
 }
-require_once "view/" . $objController->view . ".php";
+require_once "view/" . $Controller->view . ".php";
 require_once "view/inc_footer.php";
