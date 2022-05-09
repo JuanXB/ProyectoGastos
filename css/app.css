@@ -14,7 +14,6 @@ body {
   justify-content: center;
 }
 
-
 .contenedor {
   min-height: 99vh;
   width: 100%;
@@ -55,8 +54,6 @@ nav li {
   margin: 1rem;
 }
 
-
-
 li a {
   text-decoration: none;
   color: rgb(238, 238, 238);
@@ -65,12 +62,9 @@ li a {
   height: 100%;
 }
 
-
 li a:hover {
   text-decoration: underline;
 }
-
-
 
 /* Menu de opciones pagina inicial app.php */
 .tituloApp {
@@ -83,7 +77,6 @@ li a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-
 }
 
 .option a {
@@ -100,7 +93,6 @@ li a:hover {
   border-radius: 1rem;
   box-shadow: 0 5px 2px #999;
 }
-
 
 #search {
   background-color: rgb(17, 70, 143);
@@ -124,13 +116,11 @@ li a:hover {
   background-color: rgb(121, 82, 179, 0.5);
 }
 
-
 #new:active {
   background-color: rgb(121, 82, 179);
   box-shadow: 0 2px 1px #666;
   transform: translateY(4px);
 }
-
 
 #list {
   background-color: rgb(224, 176, 0);
@@ -165,7 +155,6 @@ table {
 table thead {
   border-bottom: 2px solid #000;
   font-weight: bolder;
-
 }
 
 caption {
@@ -174,14 +163,13 @@ caption {
   background-color: rgb(17, 70, 143);
 }
 
-tr, th, td {
+tr,
+th,
+td {
   min-height: 3rem;
   height: 4rem;
   max-width: 5rem;
 }
-
-
-
 
 tr:nth-child(odd) {
   background-color: #ddd;
@@ -200,9 +188,8 @@ td {
   font-size: 17px;
 }
 
-
-
-.btmEdit, .btmDelete {
+.btmEdit,
+.btmDelete {
   height: 2.5rem;
   width: 3.2rem;
   display: flex;
@@ -217,24 +204,26 @@ td {
   box-shadow: 0 2px 1px #666;
 }
 
-.btmEdit a, .btmDelete a {
+.btmEdit a,
+.btmDelete a {
   text-decoration: none;
   color: rgb(238, 238, 238);
   letter-spacing: 1px;
 }
 
 .btmEdit {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
 
 .btmDelete {
+  border: none;
   background-color: #f44336;
+  color: #fff;
 }
 
 .btmDelete:hover {
   background-color: #6d110a;
 }
-
 
 .btmEdit:hover {
   background-color: #065e09;
@@ -248,7 +237,6 @@ td {
   display: inline-flex;
   justify-content: center;
   margin-bottom: 2rem;
-
 }
 
 .inputSearch {
@@ -283,7 +271,8 @@ td {
 /* Formulario para agregar nuevo gasto de new.php
   Formulario para modificar gasto de modify.php*/
 
-.formNew, .formModify {
+.formNew,
+.formModify {
   width: 100%;
   min-height: 3rem;
   display: flex;
@@ -294,7 +283,9 @@ td {
   font-size: 23px;
 }
 
-.inputCategory, .inputAmount, .inputDate {
+.inputCategory,
+.inputAmount,
+.inputDate {
   border: none;
   height: 3rem;
   width: 20rem;
@@ -343,5 +334,5 @@ td {
 footer {
   font-size: small;
   margin: 2rem 0rem;
-  color: rgb(238, 238, 238)
+  color: rgb(238, 238, 238);
 }

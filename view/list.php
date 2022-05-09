@@ -35,7 +35,7 @@ if (!empty($allExpenses)) {
             </td>
             <td>
               <div class="btmDelete">
-                <input type="button" id="btmDelete" value="Borrar">
+                <input type="button" id="btmDelete" class="btmDelete" value="Borrar">
               </div>
             </td>
           </tr>
