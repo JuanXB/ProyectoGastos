@@ -1,4 +1,4 @@
-Gastos Personales
+#Gastos Personales
 App web para llevar un registro de tus gastos.
 
 Comenzando 🚀
