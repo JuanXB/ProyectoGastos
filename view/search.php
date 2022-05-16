@@ -31,13 +31,13 @@ if (!empty($matchingExpenses)) {
             <td><?php echo $expense->category; ?></td>
             <td><?php echo $expense->amount; ?></td>
             <td><?php echo $expense->details; ?></td>
-            <td><?php echo $objController->expenses->changeFormatDateForView($expense->expensesDate); ?></td>
+            <td><?php echo $Controller->expenses->changeFormatDateForView($expense->expensesDate); ?></td>
             <td>
               <div class="btmEdit"><a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense->id; ?>&view=search">Editar</a></div>
             </td>
             <td>
-              <div class="btmDelete">
-                <input type="button" id="btmDelete" value="Borrar">
+              <div>
+                <input type="button" id="btmDelete" value="Borrar" class="btmDelete">
               </div>
             </td>
           </tr>
