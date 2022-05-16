@@ -18,25 +18,25 @@ git clone https://github.com/JuanXB/ProyectoGastos
   Ejemplo: XAMPP
   Puedes obtener XAMPP desde aqui: https://www.apachefriends.org/es/index.html
 
--Necesitas un administrador de base de datos
-Ejemplo: phpMyAdmin
+- Necesitas un administrador de base de datos
+  Ejemplo: phpMyAdmin
 
 - Necesitas un editor de codigo (Si quisieras realizar algun cambio en el codigo)
   Ejemplo VSCode
 
--Necesitas un navegador Web
-Ejemplo: Chrome, FireFox, Brave, etc.
+- Necesitas un navegador Web
+  Ejemplo: Chrome, FireFox, Brave, etc.
 
 ### Ejecución de la app
 
--Tienes que importar la base de datos que se encuentra en dataBase\bd.sql uasndo
-el administrador de la base de datos.
+- Tienes que importar la base de datos que se encuentra en dataBase\bd.sql uasndo
+  el administrador de la base de datos.
 
--Luego tienes que iniciar tu servidor y su base de datos MySQL desde su sitema de gestión.
+- Luego tienes que iniciar tu servidor y su base de datos MySQL desde su sitema de gestión.
 
--Luego desde su navegador dirigirse a http://localhost/"ruta_de_acceso"/ProyectoGastos
-donde "ruta_de_acceso" = a la ruta relatica donde se encuentra la carpeta del proyecto dentro del
-htdocs de nuestro sistema de gestion.
+- Luego desde su navegador dirigirse a http://localhost/"ruta_de_acceso"/ProyectoGastos
+  donde "ruta_de_acceso" = a la ruta relatica donde se encuentra la carpeta del proyecto dentro del
+  htdocs de nuestro sistema de gestion.
 
 ### Construido con:
 
