@@ -4,13 +4,13 @@ App web para llevar un registro de tus gastos.
 
 ### Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
--Debes ir al directorio del proyecto y usar el siguiente comando:
+- Debes ir al directorio del proyecto y usar el siguiente comando:
 
-git init
+  git init
 
--Luego clona el repositorio con el comando:
+- Luego clona el repositorio con el comando:
 
-git clone https://github.com/JuanXB/ProyectoGastos
+  git clone https://github.com/JuanXB/ProyectoGastos
 
 ### Pre-requisitos
 
