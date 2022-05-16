@@ -1,43 +1,43 @@
 # Gastos Personales
+
 App web para llevar un registro de tus gastos.
 
-Comenzando 🚀
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+### Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-Mira Deployment para conocer como desplegar el proyecto.
+-Debes ir al directorio del proyecto y usar el siguiente comando:
 
-Pre-requisitos 📋
-Que cosas necesitas para instalar el software y como instalarlas
+git init
 
-Da un ejemplo
-Instalación 🔧
-Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose
+-Luego clona el repositorio con el comando:
 
-Dí cómo será ese paso
+git clone https://github.com/JuanXB/ProyectoGastos
 
-Da un ejemplo
-Y repite
+### Pre-requisitos
 
-hasta finalizar
-Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo
+- Necesitas un sistema de gestion.
+  Ejemplo: XAMPP
+  Puedes obtener XAMPP desde aqui: https://www.apachefriends.org/es/index.html
 
-Ejecutando las pruebas ⚙️
-Explica como ejecutar las pruebas automatizadas para este sistema
+-Necesitas un administrador de base de datos
+Ejemplo: phpMyAdmin
 
-Analice las pruebas end-to-end 🔩
-Explica que verifican estas pruebas y por qué
+- Necesitas un editor de codigo (Si quisieras realizar algun cambio en el codigo)
+  Ejemplo VSCode
 
-Da un ejemplo
-Y las pruebas de estilo de codificación ⌨️
-Explica que verifican estas pruebas y por qué
+-Necesitas un navegador Web
+Ejemplo: Chrome, FireFox, Brave, etc.
 
-Da un ejemplo
-Despliegue 📦
-Agrega notas adicionales sobre como hacer deploy
+### Ejecución de la app
 
-Construido con 🛠️
-Menciona las herramientas que utilizaste para crear tu proyecto
+-Tienes que importar la base de datos que se encuentra en dataBase\bd.sql uasndo
+el administrador de la base de datos.
 
-Dropwizard - El framework web usado
-Maven - Manejador de dependencias
-ROME - Usado para generar RSS
+-Luego tienes que iniciar tu servidor y su base de datos MySQL desde su sitema de gestión.
+
+-Luego desde su navegador dirigirse a http://localhost/"ruta_de_acceso"/ProyectoGastos
+donde "ruta_de_acceso" = a la ruta relatica donde se encuentra la carpeta del proyecto dentro del
+htdocs de nuestro sistema de gestion.
+
+### Construido con:
+
+https://github.com/JuanXB/microFrameworkPHP
