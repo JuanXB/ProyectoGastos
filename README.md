@@ -6,17 +6,17 @@ App web para llevar un registro de tus gastos.
 
 - Debes ir al directorio del proyecto y usar el siguiente comando:
 
-  git init
+`git init `
 
 - Luego clona el repositorio con el comando:
 
-  git clone https://github.com/JuanXB/ProyectoGastos
+`git clone https://github.com/JuanXB/ProyectoGastos`
 
 ### Pre-requisitos
 
 - Necesitas un sistema de gestion.
   Ejemplo: XAMPP
-  Puedes obtener XAMPP desde aqui: https://www.apachefriends.org/es/index.html
+  Puedes obtener XAMPP desde aqui: [Download XAMPP](https://www.apachefriends.org/es/index.html)
 
 - Necesitas un administrador de base de datos
   Ejemplo: phpMyAdmin
