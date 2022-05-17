@@ -87,6 +87,19 @@ class ExpensesController extends BasicController
   }
 
 
+  public function confirmDelete()
+  {
+    $id = $_GET['id'];
+    $this->view = 'confirmDelete';
+    $this->titlePage = "Confirmar Eliminación";
+    $this->redirectView = $_GET['view'];
+
+    if (isset($id) && $id != "") {
+      return $this->expenses->getById($id);
+    }
+  }
+
+
 
   public function delete()
   {

@@ -34,7 +34,7 @@ App web para llevar un registro de tus gastos.
 
 - Luego tienes que iniciar tu servidor y su base de datos MySQL desde su sitema de gestión.
 
-- Luego desde su navegador dirigirse a http://localhost/"ruta_de_acceso"/ProyectoGastos/index.php?controller=Expenses&action=app
+- Luego desde su navegador dirigirse a http://localhost/"ruta_de_acceso"/ProyectoGastos/
   donde "ruta_de_acceso" = a la ruta relatica donde se encuentra la carpeta del proyecto dentro del
   htdocs de nuestro sistema de gestion.
 

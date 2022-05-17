@@ -2,7 +2,6 @@
 if (isset($dataToView["data"])) $expense = $dataToView["data"];
 $id = $expense->id;
 
-echo $Controller->redirectView;
 ?>
 <form action="index.php?controller=Expenses&action=edit&id='<?php echo $id; ?>'&view=<?php echo $Controller->redirectView; ?>" class="formModify" method="POST">
   Categoria: <input type="text" class="inputCategory" placeholder="<?php echo $expense->category; ?>" name="category">
