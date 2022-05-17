@@ -104,11 +104,14 @@ class ExpensesController extends BasicController
   public function delete()
   {
 
-    if (isset($_GET['id']) && $_GET['id'] != "") {
+    $this->redirectView = $_GET['view'];
+
+
+    if (isset($_GET['id'])) {
       $this->expenses->deleteById($_GET['id']);
     }
 
-    if ($_GET['view'] == 'search') {
+    if ($this->redirectView == 'search') {
       $this->view = 'search';
       $this->titlePage = "Buscar Gasto";
 
@@ -117,7 +120,7 @@ class ExpensesController extends BasicController
       return  array();
     }
 
-    if ($_GET['view'] == 'list') {
+    if ($this->redirectView == 'list') {
       $this->view = 'list';
       $this->titlePage = "Lista de Gastos";
 

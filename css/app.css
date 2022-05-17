@@ -283,6 +283,26 @@ td {
   font-size: 23px;
 }
 
+.confirmDelete {
+  height: 150px;
+  background-color: rgb(57, 62, 70);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(238, 238, 238);
+}
+
+.cancelDelete {
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+  font-size: 21px;
+}
+
+.cancelDelete:hover {
+  text-decoration: underline;
+}
+
 .inputCategory,
 .inputAmount,
 .inputDate {

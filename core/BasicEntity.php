@@ -94,7 +94,7 @@ class BasicEntity
 
   public function deleteById($id)
   {
-    $id = $this->db->real_escape_string($id);
+
     $query = $this->db->query("DELETE FROM $this->table WHERE id=$id");
     return $query;
   }

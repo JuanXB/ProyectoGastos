@@ -36,7 +36,7 @@ if (!empty($matchingExpenses)) {
               <div class="btmEdit"><a href="index.php?controller=Expenses&action=modify&id=<?php echo $expense->id; ?>&view=search">Editar</a></div>
             </td>
             <td>
-              <div>
+              <div class="btmDelete">
                 <a href="index.php?controller=Expenses&action=confirmDelete&id=<?php echo $expense->id; ?>&view=search">Borrar</a>
               </div>
             </td>
