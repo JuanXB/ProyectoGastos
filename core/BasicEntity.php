@@ -78,6 +78,7 @@ class BasicEntity
     $query = "SELECT * FROM $this->table WHERE $column = ?";
     $statment = $this->db()->prepare($query);
 
+    // TODO: hacerlos para todos los tipos posibles
     if (is_numeric($value)) {
       $statment->bind_param("d", $value);
     } else {
@@ -105,6 +106,7 @@ class BasicEntity
     $query = "DELETE FROM $this->table WHERE $column = ?";
     $statment = $this->db()->prepare($query);
 
+    // TODO: hacerlos para todos los tipos posibles
     if (is_numeric($value)) {
       $statment->bind_param("d", $value);
     } else {
